@@ -18,23 +18,9 @@
 
 @implementation ViewController
 
-- (UIScrollView *)contentScrollView {
-    if (_contentScrollView == nil) {
-        UIScrollView *contentView = [[UIScrollView alloc] init];
-        contentView.backgroundColor = [UIColor yellowColor];
-        [self.view addSubview:contentView];
-        _contentScrollView = contentView;
-        NSLog(@"%s---%p\n",__func__,_contentScrollView);
-    }
-    return _contentScrollView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //[self setValue:nil forKey:@"contentScrollView"];
-    
-    [self setupContentSubViewsFrame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,12 +28,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupContentSubViewsFrame {
-    CGFloat selfViewWidth = self.view.frame.size.width;
-    CGFloat selfViewHeight = self.view.frame.size.height;
-    self.contentScrollView.frame = CGRectMake(0, 124, selfViewWidth, selfViewHeight - 134);
+- (UIScrollView *)contentScrollView {
+    if (_contentScrollView == nil) {
+        UIScrollView *contentView = [[UIScrollView alloc] init];
+        contentView.backgroundColor = [UIColor blueColor];
+        [self.view addSubview:contentView];
+        _contentScrollView = contentView;
+        NSLog(@"%s---%p\n",__func__,_contentScrollView);
+    }
+    return _contentScrollView;
 }
-
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
