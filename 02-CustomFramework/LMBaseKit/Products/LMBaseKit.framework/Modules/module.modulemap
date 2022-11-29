@@ -1,0 +1,6 @@
+framework module LMBaseKit {
+  umbrella header "LMBaseKit.h"
+
+  export *
+  module * { export * }
+}
